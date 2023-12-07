@@ -1,12 +1,17 @@
-# list of hands and bids, with hands converted to numbers
-Parse ← |1.2 ⊗:"J23456789TQKA" ⊓(≡°□|≡⋕) °⊟⍉⊜(⊜□≠@ .)≠@\n. &fras
+# list of hands and bids
+Parse ← |1.2 ⊓(≡°□|≡⋕) °⊟⍉⊜(⊜□≠@ .)≠@\n.
+
+# convert hands to numbers
+ToNumI ← ⊗:"23456789TJQKA"
+ToNumII ← ⊗:"J23456789TQKA"
 
 # determine the type based on the counts of cards
 HandType ← ⊢⇌⊚ [⊃(⋅1|/↥=2|=3⧻|/↥=3|=2⧻|/↥=4|=1⧻)] °⊚⊛
 
-Replace ← |2 ⍜▽≡⋅∘=0.: # card, hand
+Replace ← ⍜▽≡⋅∘=0.: # card, hand
 BestType ← /↥≡(HandType Replace)⇡13 ¤
 
-Parse "input.txt"
-≡⊃(⊂BestType.|⊂HandType.) # scores as a list of rank and hands
-∩(/+×+1⍏⍏)⊙,              # get ranks and total winnings
+# scores as a list of rank and hands
+≡⊃(⊂BestType.ToNumII|⊂HandType.ToNumI) Parse "input.txt"
+∩(/+×+1⍏⍏)⊙, # get ranks and total winnings
+
