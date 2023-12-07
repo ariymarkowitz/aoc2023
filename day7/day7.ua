@@ -1,5 +1,5 @@
 # list of hands and bids
-Parse ← |1.2 ⊓(≡°□|≡⋕) °⊟⍉⊜(⊜□≠@ .)≠@\n.
+Parse ← |1.2 ⊓(≡°□|≡⋕) °⊟⍉⊜(⊜□≠@ .)≠@\n. &fras
 
 # convert hands to numbers
 ToNumI ← ⊗:"23456789TJQKA"
